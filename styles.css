@@ -1,0 +1,82 @@
+/*** Variables ***/
+body {
+    --border-radius-conversation-bubble: 8px !important;
+}
+
+
+
+
+
+/*** Chat ***/
+
+/*** Chat > Header ***/
+.right-pane-header { padding: 16px 0; height: calc(36px + (16px * 2)); }
+
+
+/*** Chat > Chat pane ***/
+.conversation .panes { padding: 0 32px 16px; }
+
+.conversation .panes::before,
+.conversation .panes::after { content: ""; display: block; height: 32px; position: absolute; left: 0; right: 0; top: unset; bottom: unset; z-index: 20; --edit-message-backdrop-blur: 0px; border-radius: unset; }
+
+.conversation .panes::before { top: 0; background: linear-gradient(180deg,var(--color-background-app) 0%, rgba(0, 0, 0, 0) 100%);}
+.conversation .panes::after { bottom: 0; background: linear-gradient(0deg,var(--color-background-app) 0%, rgba(0, 0, 0, 0) 100%); }
+
+
+/*** Chat > Compose module ***/
+.conversation .ComposeMessage-module__wrapper { padding: 32px; padding-top: 0px; }
+
+.BrandHiddenControls-module__toggle { border-radius: var(--border-radius-conversation-bubble); }
+.ComposeMessage-module__input { border-radius: var(--border-radius-conversation-bubble); }
+.BrandSendButton-module__container { border-radius: var(--border-radius-conversation-bubble); }
+
+
+
+
+
+
+
+/*** Messages ***/
+
+/** Messages > Styling **/
+.message-container { --message-gap-below: 4px !important; }
+
+
+/** Messages > Styling > Emoji messages **/
+.type-emoji .message-text-container { font-size: calc(var(--font-size-body-small) + var(--font-size-body-small)); }
+.bubble-mode .type-emoji:not(.is-deleted) .message-contents { background: var(--color-secondary-container) !important; padding: var(--message-padding-vertical) var(--message-padding-horizontal)  !important; }
+
+
+/** Messages > Replies **/
+.message-container .linked-message { grid-area: linked-message; grid-column-start: linked-message; grid-column-end: unset; }
+.LinkedMessage-module__linkedMessage.LinkedMessage-module__isSender { margin-left: unset !important; }
+.message-container:not(.is-sender) .MessageContainer-module__replyLineFromLinkedMessage { display: none !important; }
+
+div:has(:not(.is-sender)) + div > :not(.is-sender) .LinkedMessage-module__linkedMessage.LinkedMessage-module__isSender { margin-top: 16px !important; }
+div:has(.is-sender) + div > .is-sender .LinkedMessage-module__linkedMessage:not(.LinkedMessage-module__isSender) { margin-top: 16px !important; }
+
+.LinkedMessage-module__linkedMessage:not(.LinkedMessage-module__isSender) { margin-right: unset !important; }
+.BrandReplyLineSegment-module__container.BrandReplyLineSegment-module__end { display: none !important; }
+
+
+
+
+
+
+/*** Sidebar ***/
+
+/** Sidebar > Account types **/
+.accounts > .account-container { opacity: 0.5; filter: grayscale(75%); }
+.accounts > .account-container:has(.sidebar-button.selected) { opacity: 1; filter: grayscale(0%); }
+
+
+/** Sidebar > Chats > Pinned **/
+.threads .virtual-list > div > div:first-child { overflow-y: auto; max-height: 30vh; overflow-x: hidden; }
+
+.pinned-threads .sidebar-thread { width: 20%; }
+.pinned-threads .sidebar-thread.isPinned > section { --avatar-size: 40px; }
+.pinned-threads .sidebar-thread.isPinned > section .participant-avatar img { width: var(--avatar-size) !important; height: var(--avatar-size) !important; }
+
+
+/** Sidebar > Chats > Pinned > Unread **/
+.threads:has(.AccountFilters button[data-text="Unread"][class*="AccountFilters-module__selected"]) .pinned-threads .sidebar-thread:not(.isUnread) { display: none; }
