@@ -49,6 +49,7 @@ body {
 
 /** Messages > Replies **/
 .message-container .linked-message { grid-area: linked-message; grid-column-start: linked-message; grid-column-end: unset; }
+.bubble-mode .is-sender:not(.type-action) .message-main { place-items: flex-end; grid-template-columns: 1fr auto; }
 .LinkedMessage-module__linkedMessage.LinkedMessage-module__isSender { margin-left: unset !important; }
 .message-container:not(.is-sender) .MessageContainer-module__replyLineFromLinkedMessage { display: none !important; }
 
@@ -57,6 +58,7 @@ div:has(.is-sender) + div > .is-sender .LinkedMessage-module__linkedMessage:not(
 
 .LinkedMessage-module__linkedMessage:not(.LinkedMessage-module__isSender) { margin-right: unset !important; }
 .BrandReplyLineSegment-module__container.BrandReplyLineSegment-module__end { display: none !important; }
+
 
 
 
