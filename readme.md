@@ -1,1 +1,1 @@
-@import url(https://finnjosten.github.io/beeper-theme/styles.css);
+@import url(https://finnjosten.github.io/beeper-theme/theme.css);
